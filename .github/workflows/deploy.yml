@@ -1,0 +1,29 @@
+name: 🚀 Build & Deploy xTrace
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with: python-version: '3.10'
+      - run: pip install mkdocs mkdocs-material
+      - run: mkdocs build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: \${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+      - uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: \${{ secrets.EMAIL_USERNAME }}
+          password: \${{ secrets.EMAIL_PASSWORD }}
+          subject: "New Ticket Submitted"
+          body: "새로운 티켓이 등록되었습니다: \${{ github.event.head_commit.message }}"
+          to: user@example.com
+          from: xTrace Bot <bot@example.com>
+      - run: |
+          curl -X POST https://webhook.example.com/ticket \
+               -H 'Content-Type: application/json' \
+               -d '{"message":"New ticket submitted","user":"abcdEFgh"}'

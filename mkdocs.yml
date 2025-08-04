@@ -1,0 +1,7 @@
+site_name: xTrace Tickets
+theme:
+  name: material
+  language: ko
+nav:
+  - Home: index.md
+  - Tickets: docs/tickets/

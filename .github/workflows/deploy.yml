@@ -1,23 +1,16 @@
 name: Build & Deploy xTrace
 
 on:
-<<<<<<< HEAD
   push:
     branches:
       - main
-=======
-    push:
-          branches:
-            - main
->>>>>>> e7bd70f (✅ deploy.yml 수정: 들여쓰기 및 gh-pages 설정 보완)
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-
-
 
       - uses: actions/setup-python@v4
         with:
@@ -44,7 +37,8 @@ jobs:
           to: user@example.com
           from: xTrace Bot <bot@example.com>
 
-      - run: |
+      - name: Webhook notification
+        run: |
           curl -X POST https://webhook.example.com/ticket \
                -H 'Content-Type: application/json' \
                -d '{"message":"New ticket submitted","user":"abcdEFgh"}'

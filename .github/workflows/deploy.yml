@@ -28,8 +28,8 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "New Ticket Submitted"
           body: "새로운 티켓이 등록되었습니다: ${{ github.event.head_commit.message }}"
-          to: youremail@domain.com
-          from: xTrace Bot <bot@example.com>
+          to: woaks96174@gmail.com
+          from: xTrace Bot <woaks96174@gmail.com>
       - name: Webhook notification
         run: |
           curl -X POST https://webhook.example.com/ticket \

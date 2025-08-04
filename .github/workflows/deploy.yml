@@ -34,4 +34,4 @@ jobs:
         run: |
           curl -X POST https://webhook.example.com/ticket \
                -H 'Content-Type: application/json' \
-               -d '{"message":"New ticket submitted","user":"abcdEFgh"}'
+               -d '{"message":"New ticket submitted","user":"abcdEFgh"}' || true

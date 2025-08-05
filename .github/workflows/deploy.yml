@@ -10,16 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - run: pip install mkdocs mkdocs-material
+
+      - name: 📦 Install MkDocs + Plugins           # ⬅️ 단계명 추가(선택)
+        run: |
+          pip install mkdocs mkdocs-material mkdocs-awesome-pages-plugin
+
       - run: mkdocs build
+
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           publish_branch: gh-pages
+
       - uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -30,6 +37,7 @@ jobs:
           body: "새로운 티켓이 등록되었습니다: ${{ github.event.head_commit.message }}"
           to: woaks96174@gmail.com
           from: xTrace Bot <woaks96174@gmail.com>
+
       - name: Webhook notification
         run: |
           curl -X POST https://webhook.example.com/ticket \

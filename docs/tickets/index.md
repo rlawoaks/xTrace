@@ -1,5 +1,5 @@
-# 🎫 Tickets 목록
+# 📑 Tickets 목록
 
 아래는 생성된 티켓들의 링크입니다:
 
-- [issue-001](./abcdEFgh/2025/08/04/issue-001.md)
+- [웹 방화벽 과부하 경고](./${REL_PATH}/)

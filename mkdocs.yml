@@ -5,8 +5,10 @@ theme:
 
 plugins:
   - search
-  - awesome-pages      # 📌 자동 네비게이션 플러그인
+  - awesome-pages        # 자동 네비게이션 플러그인
+
+use_directory_urls: false # HTML 파일(…/issue-001.html) 로 빌드 → 링크에 .md 제거
 
 nav:
   - Home: index.md
-  - Tickets: tickets/  # tickets 폴더 전체를 자동 탐색
+  - Tickets: tickets/     # tickets 폴더 전체 자동 탐색

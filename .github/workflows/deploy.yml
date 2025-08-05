@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: 📦 Install MkDocs + Plugins           # ⬅️ 단계명 추가(선택)
+      - name:  Install MkDocs + Plugins         
         run: |
           pip install mkdocs mkdocs-material mkdocs-awesome-pages-plugin
 

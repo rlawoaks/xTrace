@@ -3,8 +3,10 @@ theme:
   name: material
   language: ko
 
+plugins:
+  - search
+  - awesome-pages
+
 nav:
   - Home: index.md
-  - Tickets:
-      - index: tickets/index.md
-      - issue-001: tickets/abcdEFgh/2025/08/04/issue-001.md
+  - Tickets: tickets/

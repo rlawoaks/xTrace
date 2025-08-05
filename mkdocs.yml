@@ -5,4 +5,6 @@ theme:
 
 nav:
   - Home: index.md
-  - Tickets: tickets/index.md 
+  - Tickets:
+      - index: tickets/index.md
+      - issue-001: tickets/abcdEFgh/2025/08/04/issue-001.md

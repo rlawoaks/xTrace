@@ -5,8 +5,8 @@ theme:
 
 plugins:
   - search
-  - awesome-pages
+  - awesome-pages      # 📌 자동 네비게이션 플러그인
 
 nav:
   - Home: index.md
-  - Tickets: tickets/
+  - Tickets: tickets/  # tickets 폴더 전체를 자동 탐색

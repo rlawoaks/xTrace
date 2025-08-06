@@ -1,8 +1,8 @@
-name: Build & Deploy xTrace
+name: Build & Deploy xTrace-root   # 파일명은 자유
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]             # main 브랜치 Push 시 실행
 
 jobs:
   build-and-deploy:
@@ -18,13 +18,13 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material mkdocs-awesome-pages-plugin
 
-      - run: mkdocs build
+      - run: mkdocs build           # ./site 생성
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
+          publish_dir: ./site        # ← 빌드 산출물
+          publish_branch: main       # ← **루트 배포 핵심**
 
       - uses: dawidd6/action-send-mail@v3
         with:
@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "New Ticket Submitted"
-          body: "새로운 티켓이 등록되었습니다: ${{ github.event.head_commit.message }}"
+          body: "새 티켓: ${{ github.event.head_commit.message }}"
           to: woaks96174@gmail.com
           from: xTrace Bot <woaks96174@gmail.com>
 
